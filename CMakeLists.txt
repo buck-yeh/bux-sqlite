@@ -32,7 +32,7 @@ find_package(fmt CONFIG REQUIRED)
 
 add_subdirectory (src)
 
-install(TARGETS buxosqlite
+install(TARGETS bux-sqlite
         ARCHIVE DESTINATION lib
         LIBRARY DESTINATION lib
         RUNTIME DESTINATION bin)
