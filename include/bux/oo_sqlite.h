@@ -20,8 +20,8 @@ public:
 
     // Nonvirtuals
     C_SQLite(const char *path, int flags = SQLITE_OPEN_READWRITE);
-    C_SQLite(const std::nothrow_t&, const char *path, int flags = SQLITE_OPEN_READWRITE);
-    ~C_SQLite();
+    C_SQLite(const std::nothrow_t&, const char *path, int flags = SQLITE_OPEN_READWRITE) noexcept;
+    ~C_SQLite() noexcept;
     C_SQLite(const C_SQLite &) = delete;
     C_SQLite &operator=(const C_SQLite &) = delete;
     operator sqlite3*() const { return m_sqlite; }
@@ -33,7 +33,7 @@ private:
     sqlite3     *m_sqlite{};
 
     // Nonvirtuals
-    int open(const char *path, int flags);
+    int open(const char *path, int flags) noexcept;
 };
 
 class C_SQLiteStmt
@@ -50,7 +50,9 @@ public:
     void execute() const;
     bool nextRow() const;
     void prepare(sqlite3 *handle, const std::string &sql);
-    void reset(sqlite3_stmt *stmt = nullptr);
+    void reset(sqlite3_stmt *stmt = nullptr) noexcept;
+    // Calling native sqlite3_bind_\w+() CAPIs on C_SQLiteStmt object directly
+    // is the best way to bind arguments before calling stmt.execute()
 
 private:
 

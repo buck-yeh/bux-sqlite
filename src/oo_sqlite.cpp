@@ -93,7 +93,7 @@ C_SQLite::C_SQLite(const char *path, int flags)
         RUNTIME_ERROR("Fail to open sqlite {} with error({}): {}", path, err, sqlite3_errstr(err));
 }
 
-C_SQLite::C_SQLite(const std::nothrow_t&, const char *path, int flags)
+C_SQLite::C_SQLite(const std::nothrow_t&, const char *path, int flags) noexcept
 {
     auto err = open(path, flags);
     if (SQLITE_OK != err)
@@ -103,7 +103,7 @@ C_SQLite::C_SQLite(const std::nothrow_t&, const char *path, int flags)
     }
 }
 
-C_SQLite::~C_SQLite()
+C_SQLite::~C_SQLite() noexcept
 {
     sqlite3_close_v2(m_sqlite);
 }
@@ -116,7 +116,7 @@ void C_SQLite::exec(const std::string &sql) const
         RUNTIME_ERROR("Exec \"{}\"{}", sql, sqliteErrorSuffix(err,errmsg));
 }
 
-int C_SQLite::open(const char *path, int flags)
+int C_SQLite::open(const char *path, int flags) noexcept
 {
     sqlite3_config(SQLITE_CONFIG_URI, 1);
     return sqlite3_open_v2(path, &m_sqlite, flags, nullptr);
@@ -160,7 +160,7 @@ void C_SQLiteStmt::prepare(sqlite3 *handle, const std::string &sql)
         RUNTIME_ERROR("Prepare '{}'{}", sql, sqliteErrorSuffix(err));
 }
 
-void C_SQLiteStmt::reset(sqlite3_stmt *stmt)
+void C_SQLiteStmt::reset(sqlite3_stmt *stmt) noexcept
 {
    sqlite3_finalize(m_stmt);
    m_stmt = stmt;
