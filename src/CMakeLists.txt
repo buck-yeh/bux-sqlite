@@ -1,5 +1,5 @@
 add_library(bux-sqlite STATIC oo_sqlite.cpp)
-target_include_directories(bux-sqlite PRIVATE ../include ../../bux/include)
+target_include_directories(bux-sqlite PRIVATE ../include ../${DEPENDEE_ROOT}/bux/include)
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 target_link_libraries(bux-sqlite PRIVATE fmt::fmt)
 endif()

@@ -1,5 +1,4 @@
-#ifndef oo_sqlite_H_
-#define oo_sqlite_H_
+#pragma once
 
 /*! \file
     \brief SQLite API Wrappers
@@ -70,5 +69,3 @@ std::string openPathOfDB(std::string db_url, int open_opts);
 std::string sqliteErrorSuffix(int err, char *errmsg = nullptr);
 
 } // namespace bux
-
-#endif // oo_sqlite_H_
