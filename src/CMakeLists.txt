@@ -1,6 +1,6 @@
 add_library(bux-sqlite STATIC oo_sqlite.cpp)
 if(DEFINED FETCH_DEPENDEES)
-    target_include_directories(bux-sqlite PRIVATE ../include {fetchedbux_SOURCE_DIR}/include)
+    target_include_directories(bux-sqlite PRIVATE ../include)
 else()
     target_include_directories(bux-sqlite PRIVATE ../include ../${DEPENDEE_ROOT}/bux/include)
 endif()
