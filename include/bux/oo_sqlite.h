@@ -51,7 +51,7 @@ public:
     void prepare(sqlite3 *handle, const std::string &sql);
     void reset(sqlite3_stmt *stmt = nullptr) noexcept;
     // Calling native sqlite3_bind_\w+() CAPIs on C_SQLiteStmt object directly
-    // is the best way to bind arguments before calling stmt.execute()
+    // is the recommended way to bind arguments before calling stmt.execute()
 
 private:
 
