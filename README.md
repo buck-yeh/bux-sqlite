@@ -36,16 +36,16 @@ The idea is to minimize boilerplate code when doing the same things using native
 3. `yay -Ql bux-sqlite` to see the installed files:
 
    ~~~bash
-   bux-mariadb-client /usr/
-   bux-mariadb-client /usr/include/
-   bux-mariadb-client /usr/include/bux/
-   bux-mariadb-client /usr/include/bux/oo_mariadb.h
-   bux-mariadb-client /usr/lib/
-   bux-mariadb-client /usr/lib/libbux-mariadb-client.a
-   bux-mariadb-client /usr/share/
-   bux-mariadb-client /usr/share/licenses/
-   bux-mariadb-client /usr/share/licenses/bux-mariadb-client/
-   bux-mariadb-client /usr/share/licenses/bux-mariadb-client/LICENSE
+   bux-sqlite /usr/
+   bux-sqlite /usr/include/
+   bux-sqlite /usr/include/bux/
+   bux-sqlite /usr/include/bux/oo_sqlite.h
+   bux-sqlite /usr/lib/
+   bux-sqlite /usr/lib/libbux-sqlite.a
+   bux-sqlite /usr/share/
+   bux-sqlite /usr/share/licenses/
+   bux-sqlite /usr/share/licenses/bux-sqlite/
+   bux-sqlite /usr/share/licenses/bux-sqlite/LICENSE
    ~~~
 
 4. Include the sole header file by prefixing the header name with `bux/`:
