@@ -55,7 +55,8 @@ The idea is to minimize boilerplate code when doing the same things using native
    ~~~
 
    *p.s.* Compiler is expected to search `/usr/include` by default.
-5. If directly using `gcc` or `clang` is intended, the required compiler flags are `-lbux-sqlite -lbux`
+5. Make sure `bux` is also [installed](https://github.com/buck-yeh/bux#in-archlinux).
+6. If directly using `gcc` or `clang` is intended, the required compiler flags are `-lbux-sqlite -lbux`
 
 ### from github in any of [Linux distros](https://distrowatch.com/)
 
@@ -72,4 +73,5 @@ The idea is to minimize boilerplate code when doing the same things using native
    make -j
    ~~~
 
-3. Include `include/bux/oo_sqlite.h` and link with `src/libbux-sqlite.a`
+3. Make sure `bux` is also [installed or built](https://github.com/buck-yeh/bux#installation--usage).
+4. Include `include/bux/oo_sqlite.h` and link with `src/libbux-sqlite.a` & `whereever-you-install-or-build-it/libbux.a`
