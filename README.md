@@ -60,11 +60,11 @@ The idea is to minimize boilerplate code when doing the same things using native
 
 ### from github in any of [Linux distros](https://distrowatch.com/)
 
-1. Make sure you have installed `cmake` `make` `gcc` `git` `fmt` `sqlite`, or the likes. Known package names in different distros/package-managers:
+1. Make sure you have installed `cmake` `make` `gcc` `git` `sqlite`, or the likes. Known package names in different distros/package-managers:
    | Distro/PkgMngr | Package Name |
    |:----------------:|:------------:|
-   | ArchLinux/yay | `fmt`, `sqlite` |
-   | Fedora/dnf | `fmt-devel`, `sqlite-devel` |
+   | ArchLinux/yay | `sqlite` |
+   | Fedora/dnf | `sqlite-devel` |
 
 2. ~~~bash
    git clone https://github.com/buck-yeh/bux-sqlite.git
