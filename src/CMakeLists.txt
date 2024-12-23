@@ -1,16 +1,14 @@
 find_package (SQLite3)
 
+if (NOT SQLITE3_FOUND)
+    message("SQLite3 not found")
+endif ()
+
 add_library(bux-sqlite STATIC oo_sqlite.cpp)
 
-if (SQLITE3_FOUND)
-    include_directories(${SQLITE3_INCLUDE_DIRS})
-    target_link_libraries (bux-sqlite ${SQLITE3_LIBRARIES})
-else()
-    message("SQLite3 not found")
-endif (SQLITE3_FOUND)
-
 if(DEFINED FETCH_DEPENDEES)
-    target_include_directories(bux-sqlite PRIVATE ../include)
+    target_include_directories(bux-sqlite PRIVATE ../include ${SQLITE3_INCLUDE_DIRS})
 else()
-    target_include_directories(bux-sqlite PRIVATE ../include ../${DEPENDEE_ROOT}/bux/include)
+    target_include_directories(bux-sqlite PRIVATE ../include ../${DEPENDEE_ROOT}/bux/include ${SQLITE3_INCLUDE_DIRS})
 endif()
+target_link_libraries (bux-sqlite ${SQLITE3_LIBRARIES})
